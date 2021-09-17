@@ -1,0 +1,18 @@
+.wrapperCounter {
+    background: aqua;
+    border-radius: 10px;
+    border: 1px aqua solid;
+    padding: 50px;
+}
+
+.counter {
+    margin: 50% 50%;
+    font-size: 4em;
+    font-weight: 600;
+}
+
+.counterMax {
+    color: red;
+    font-size: 5rem;
+
+}

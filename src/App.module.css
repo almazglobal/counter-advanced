@@ -1,0 +1,18 @@
+.wrapperApp {
+  display: flex;
+  border: aqua solid 3px;
+  flex-direction: column;
+  width: 300px;
+  border-radius: 10px;
+  padding: 30px;
+  /*margin: 200px 50% 0 50%;*/
+}
+
+.wrapperButtons {
+  display: flex;
+  padding: 20px;
+  border-radius: 10px;
+  border: aqua solid 3px;
+  margin: 10px;
+
+}
