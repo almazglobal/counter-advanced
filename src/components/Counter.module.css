@@ -1,14 +1,18 @@
 .wrapperCounter {
-    background: aqua;
+    background: #80d9d9;
     border-radius: 10px;
-    border: 1px aqua solid;
-    padding: 50px;
+    border: 3px #80d9d9 solid;
+    padding: 20px;
+    width: 200px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
 }
 
 .counter {
-    margin: 50% 50%;
     font-size: 4em;
     font-weight: 600;
+    align-self: center;
 }
 
 .counterMax {
