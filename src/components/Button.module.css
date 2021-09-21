@@ -5,6 +5,7 @@
     border-radius: 5px;
     background: #80d9d9;
     align-self: center;
+    border: 2px #65aaaa solid;
 }
 
 .buttonDisabled {

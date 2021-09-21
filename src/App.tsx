@@ -22,9 +22,11 @@ function App() {
         maxValue: 5,
         startValue: 0
     }
+
     const [settings, setSettings] = useState<SettingsType>(settingsInit)
     const [counter, setCounter] = useState(settings.startValue)
     const [error, setError] = useState('')
+    const [saveSettings, setSaveSettings] = useState(false)
 
     useEffect(() => {
         const settingsNewInit = getSettingsFromLocalStorage(settingsInit)
@@ -61,14 +63,17 @@ function App() {
         localStorage.setItem('settings', JSON.stringify(settings))
         setCounter(settings.startValue)
         setError('')
+        setSaveSettings(false)
     }
 
     const ChangeMaxValueHandler = (value: number) => {
         setSettings({...settings, maxValue: value})
+        setSaveSettings(true)
         setError('enter values and press "set"')
     }
     const ChangeStartValueHandler = (value: number) => {
         setSettings({...settings, startValue: value})
+        setSaveSettings(true)
         setError('enter values and press "set"')
     }
 
@@ -91,14 +96,13 @@ function App() {
         {
             id: v1(),
             title: 'set',
-            disabled: settings.maxValue <= settings.startValue,
+            disabled: settings.maxValue <= settings.startValue || !saveSettings,
             callback: setSettingsHandler,
         },
     ]
 
-
     return (
-        <>
+        <div className={styles.mainWrapper}>
             <div className={styles.wrapperApp}>
                 <Settings
                     settings={settings}
@@ -114,7 +118,7 @@ function App() {
                 />
                 <ControlPanel propertiesButtons={propertiesButtonsCounter} />
             </div>
-        </>
+        </div>
 
     )
 }

@@ -1,3 +1,6 @@
+.mainWrapper {
+  display: flex;
+}
 .wrapperApp {
   display: flex;
   border: #80d9d9 solid 3px;

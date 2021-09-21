@@ -18,9 +18,10 @@
 .counterMax {
     color: red;
     font-size: 5rem;
-
 }
 
 .error {
     color: red;
+    align-self: center;
+    font-size: medium;
 }

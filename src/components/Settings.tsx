@@ -1,5 +1,5 @@
 import React, {ChangeEvent, Dispatch, SetStateAction} from 'react';
-import { SettingsType } from '../App';
+import {SettingsType} from '../App';
 import styles from './Settings.module.css'
 
 type SettingsPropsType = {
@@ -17,20 +17,33 @@ export const Settings = (props: SettingsPropsType) => {
         props.ChangeStartValueHandler(Number(e.currentTarget.value))
     }
 
+    if (props.settings.maxValue <= props.settings.startValue || props.settings.startValue < 0) {
+
+    }
+
     return (
         <div className={styles.wrapperSettings}>
             <label>
                 max value:
-                <input onChange={onChangeMaxValueHandler}
+                <input className={`${styles.inputSettings} ${(props.settings.maxValue <= props.settings.startValue
+                    || props.settings.startValue < 0)
+                    ? styles.errorInput : ''} `}
+                       onChange={onChangeMaxValueHandler}
                        type="number"
                        value={props.settings.maxValue} />
             </label>
-            <label>
-                start value:
-                <input onChange={onChangeStartValueHandler}
-                       type="number"
-                       value={props.settings.startValue} />
-            </label>
+            <div>
+                <label>
+                    start value:
+                    <input className={`${styles.inputSettings} ${(props.settings.maxValue <= props.settings.startValue 
+                        || props.settings.startValue < 0) 
+                        ? styles.errorInput : ''} `}
+                           onChange={onChangeStartValueHandler}
+                           type="number"
+                           value={props.settings.startValue} />
+                </label>
+            </div>
+
         </div>
 
     )
