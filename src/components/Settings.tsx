@@ -1,18 +1,20 @@
-import React, {ChangeEvent} from 'react';
+import React, {ChangeEvent, Dispatch, SetStateAction} from 'react';
 import { SettingsType } from '../App';
 import styles from './Settings.module.css'
 
 type SettingsPropsType = {
     settings: SettingsType
-    changeSettings: (settings: SettingsType) => void
+    ChangeMaxValueHandler: (value: number) => void
+    ChangeStartValueHandler: (value: number) => void
 }
 
 export const Settings = (props: SettingsPropsType) => {
+
     const onChangeMaxValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        props.changeSettings({...props.settings, props.settings.maxValue: Number(e.currentTarget.value) })
+        props.ChangeMaxValueHandler(Number(e.currentTarget.value))
     }
     const onChangeStartValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        props.changeSettings(Number(e.currentTarget.value))
+        props.ChangeStartValueHandler(Number(e.currentTarget.value))
     }
 
     return (
